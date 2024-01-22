@@ -113,8 +113,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int itemId = item.getItemId();
 
         if (itemId == R.id.nav_account) {
-            // Acción para la opción 1
-            // Puedes abrir un nuevo fragmento, iniciar una nueva actividad, etc.
+
             InicioCuenta inicioCuenta = InicioCuenta.newInstance(nombre,correo,turno,grupo);
 
 
@@ -127,9 +126,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(HomeActivity.this, "Entra en salir", Toast.LENGTH_SHORT).show();
 
             startActivity(new Intent(HomeActivity.this, MainActivity.class));
+
         } else if (itemId == R.id.plan_practica) {
+
+            FragmentPlanifica fragmentPlanifica = FragmentPlanifica.newInstance("hola","adios");
+
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragPerfilEst, new DefaultFragment())
+                    .replace(R.id.fragPerfilEst, fragmentPlanifica)
                     .commit();
 
 
